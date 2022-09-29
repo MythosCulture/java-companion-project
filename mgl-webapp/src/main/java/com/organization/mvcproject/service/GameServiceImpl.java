@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.organization.mvcproject.model.Game;
 
+@Service
 public class GameServiceImpl implements GameService {
 
 	/**

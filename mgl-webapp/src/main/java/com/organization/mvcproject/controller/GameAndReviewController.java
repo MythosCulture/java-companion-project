@@ -1,4 +1,3 @@
-//TODO 1.0   package naming convention, improve package declaration
 package com.organization.mvcproject.controller;
 
 import java.util.List;
@@ -52,14 +51,12 @@ public class GameAndReviewController {
 	 * TODO 2.0 (Separation of concerns) consider moving all controller endpoints that return a ResponseEntity into a @RestController.
 	 */
 	
-	//TODO 1.0 RequestMapping URL should follow RESTful.
-	@RequestMapping(value = "/game/getAll", method = RequestMethod.GET)
+	@RequestMapping(value = "/game", method = RequestMethod.GET)
 	public ResponseEntity<List<Game>> fetchAllGames() {
 		return new ResponseEntity<List<Game>>(javaGameService.retrieveAllGames(), HttpStatus.OK);
 	}
 
-	//TODO 1.0 RequestMapping URL should follow RESTful convention
-	@RequestMapping(value = "/game/createGame", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/game", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Void> createGame(@RequestBody Game game) {
 		javaGameService.saveGame(game);
 		return new ResponseEntity<Void>(HttpStatus.CREATED);
